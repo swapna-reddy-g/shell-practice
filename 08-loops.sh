@@ -29,6 +29,6 @@ do
         dnf install $package -y | tee -a $LOGS_FILE
         VALIDATE "INstalling $package" $?
     else
-        echo -e "$package $Y already installed $N"
+        echo -e "$TIMESTAMP [INFO] $package $Y already installed $N"
     fi
 done
