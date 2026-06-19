@@ -1,5 +1,9 @@
 #!/bin/bash
 
+TIMESTAMP=$(date)
+
+echo "TIme is $TIMESTAMP"
+
 echo "Please Enter your UserName:: "
 read USER_NAME
 
