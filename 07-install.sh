@@ -10,7 +10,7 @@ if [ $USERID -ne 0 ]; then
 fi
 
 echo "Installing MySQL"
-dnf install mysql -y
+dnf install mys98uhql -y
 
 if [ $? -ne 0 ]; then
     echo "Installation Failed, Please try again"
