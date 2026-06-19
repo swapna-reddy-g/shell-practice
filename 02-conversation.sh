@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Variables
-person1=Russia
-person2=Ukraine
+person1=$1
+person2=$2
 
 # Conversation
 echo "$person1: Hey $person2 We are going to attack you!"
