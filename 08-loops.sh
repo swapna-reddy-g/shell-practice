@@ -3,7 +3,7 @@
 USERID=$(id -u)
 LOGS_DIR=/var/log/shell-script
 LOGS_FILE="$LOGS_DIR/$0.log"
-TIMESTAMP=$(date "+%d-%m-%y %H:%M:%S")
+TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
@@ -17,20 +17,22 @@ fi
 
 VALIDATE(){
     if [ $2 -ne 0 ]; then
-        echo -e "$TIMESTAMP [ERROR] Installing $1 has $R Failed $N" | tee -a $LOGS_FILE
+        echo -e "$TIMESTAMP [ERROR] Installing $1 is ... $R FAILED $N" | tee -a $LOGS_FILE
+        exit 1
     else
-        echo -e "$TIMESTAMP [INFO] Installing $1 is $G Success $N" | tee -a $LOGS_FILE
+        echo -e "$TIMESTAMP [INFO] Installing $1 is ... $G SUCCESS $N" | tee -a $LOGS_FILE
     fi
 }
 
+
 for package in $@
 do
-    echo "Installing $package"
-    dnf list installed $package
+    echo "$TIMESTAMP [INFO] Installing $package"
+    dnf list installed $package &>> $LOGS_FILE
     if [ $? -ne 0 ]; then
-        dnf install $package -y | tee -a $LOGS_FILE
-        VALIDATE "INstalling $package" $?
+        dnf install $package -y &>> $LOGS_FILE
+        VALIDATE "Installing $package" $?
     else
-        echo -e "$TIMESTAMP [INFO] $package $Y already installed $N"
+        echo -e "$TIMESTAMP [INFO] $package already installed ... $Y SKIPPING $N"
     fi
 done
