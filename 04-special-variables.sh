@@ -2,4 +2,6 @@
 
 ####### Special Varibales #######
 echo "All Variables Passed to the script: $@"
-
+echo "No.of Variables Passed: $#"
+echo "First Variable: $1"
+echo Script Name: $0"
