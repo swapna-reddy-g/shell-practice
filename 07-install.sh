@@ -16,9 +16,9 @@ fi
 
 VALIDATE(){
     if [ $2 -ne 0 ]; then
-        echo "Installing $1 has Failed, Please try again"
+        echo "Installing $1 has Failed" | tee -a $LOGS_FILE
     else
-        echo "Installing $1 is Success"
+        echo "Installing $1 is Success" | tee -a $LOGS_FILE
     fi
 }
 dnf list installed mysql &>> $LOGS_FILE
