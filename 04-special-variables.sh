@@ -11,4 +11,5 @@ echo "Present User's home Directory $HOME"
 echo "Process Id of current script: $$"
 sleep 5 &
 echo "Process Id of script running in background $!"
+wait $!
 echo "line no of current command $LINENO"
