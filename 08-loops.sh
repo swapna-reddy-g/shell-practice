@@ -1,6 +1,7 @@
 #!/bin/bash
 
 USERID=$(id -u)
+TIMESTAMP=$(date "+%d-%m-%y %H:%M:$S")
 
 # Check if root access or not
 if [ $USERID -ne 0 ]; then
@@ -10,9 +11,9 @@ fi
 
 VALIDATE(){
     if [ $2 -ne 0 ]; then
-        echo "Installing $1 has Failed"
+        echo "$TIMESTAMP [ERROR] Installing $1 has Failed" | tee -a $LOGS_FILE
     else
-        echo "Installing $! is Success"
+        echo "$TIMESTAMP [INFO] Installing $! is Success" | tee -a $LOGS_FILE
     fi
 }
 
