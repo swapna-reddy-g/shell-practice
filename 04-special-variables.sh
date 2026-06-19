@@ -13,3 +13,4 @@ sleep 5 &
 echo "Process Id of script running in background $!"
 wait $!
 echo "line no of current command $LINENO"
+echo "Script Executed in $SECONDS seconds"
