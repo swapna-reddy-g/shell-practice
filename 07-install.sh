@@ -25,7 +25,7 @@ dnf list installed mysql &>> $LOGS_FILE
 
 if [ $? -ne 0 ]; then
     echo "Installing MySQL"
-    dnf install mysql -y
+    dnf install mysql -y &>> $LOGS_FILE
     VALIDATE MYSQL $?
 else
     echo "MYSQL is already installed"
@@ -34,7 +34,7 @@ fi
 dnf list installed nginx &>> $LOGS_FILE
 if [ $? -ne 0 ]; then
     echo "Installing NGINX"
-    dnf install nginx -y
+    dnf install nginx -y &>> $LOGS_FILE
     VALIDATE NGINX $?
 else
     echo "NGINX is already installed"
