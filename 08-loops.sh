@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+# set -e
 USERID=$(id -u)
 LOGS_DIR=/var/log/shell-script
 LOGS_FILE="$LOGS_DIR/$0.log"
@@ -10,6 +10,7 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
+trap 'echo "error at $LINENO", command: $BASH_COMMAND"' ERR
 # Check if root access or not
 if [ $USERID -ne 0 ]; then
     echo "Please run this script with root access"
