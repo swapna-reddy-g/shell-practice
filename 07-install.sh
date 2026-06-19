@@ -21,7 +21,7 @@ VALIDATE(){
         echo "Installing $1 is Success"
     fi
 }
-dnf list installed mysql &>> LOGS_FILE
+dnf list installed mysql &>> $LOGS_FILE
 
 if [ $? -ne 0 ]; then
     echo "Installing MySQL"
@@ -31,7 +31,7 @@ else
     echo "MYSQL is already installed"
 fi
 
-dnf list installed nginx &>> LOGS_FILE
+dnf list installed nginx &>> $LOGS_FILE
 if [ $? -ne 0 ]; then
     echo "Installing NGINX"
     dnf install nginx -y
