@@ -14,3 +14,5 @@ echo "Process Id of script running in background $!"
 wait $!
 echo "line no of current command $LINENO"
 echo "Script Executed in $SECONDS seconds"
+echo "Random Number Generation $RANDOM"
+echo "Exit code of Previous command: $?"
